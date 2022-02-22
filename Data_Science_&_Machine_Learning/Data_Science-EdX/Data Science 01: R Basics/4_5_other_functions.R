@@ -1,0 +1,11 @@
+apply()
+sapply()
+tapply()
+mapply()
+
+split()
+cut()
+quantile()
+reduce()
+identical()
+unique()
