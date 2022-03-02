@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.12;
 // imagine a big integer counter that the whole world could share
 contract Counter {
