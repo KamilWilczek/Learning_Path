@@ -2,9 +2,5 @@ Blockchain/Remix_offline
 Raw/Python/django_todo_list_DI2/venv
 Raw/Python/django_todo_list_DI2/.secrets
 Raw\Python\todo_drf_DI1\venv
-Raw/Python/todo_drf_DI1/.idea/.gitignore
-Raw/Python/todo_drf_DI1/.idea/misc.xml
-Raw/Python/todo_drf_DI1/.idea/modules.xml
-Raw/Python/todo_drf_DI1/.idea/todo_drf_DI1.iml
-Raw/Python/todo_drf_DI1/.idea/vcs.xml
-Raw/Python/todo_drf_DI1/.idea/inspectionProfiles/profiles_settings.xml
+Raw/Python/todo_drf_DI1/.idea
+
