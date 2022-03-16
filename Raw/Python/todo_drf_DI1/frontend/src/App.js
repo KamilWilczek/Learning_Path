@@ -3,6 +3,20 @@ import './App.css';
 
 
 class App extends React.Component {
+  constructor(props){
+    super(props);
+      this.state = {
+        todoList:[],
+        activeItem:{
+          id:null,
+          title:'',
+          completed:false,
+        },
+        editing:false,
+      }
+  };
+
+
   render(){
 
     return(
