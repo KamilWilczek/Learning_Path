@@ -27,7 +27,9 @@ class App extends React.Component {
     fetch('http://127.0.0.1:8000/api/task-list/')
     .then(response => response.json())
     .then(data =>
-      console.log('Data:', data)
+      this.setState({
+        todoList:data
+      })
       )
   }
 
