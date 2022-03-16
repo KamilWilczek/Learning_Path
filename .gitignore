@@ -5,6 +5,20 @@ Raw/Python/django_todo_list_DI2/.secrets
 
 Raw\Python\todo_drf_DI1\venv
 Raw/Python/todo_drf_DI1/.idea
+Raw\Python\todo_drf_DI1\db.sqlite3
+Raw\Python\todo_drf_DI1\frontend\node_modules
+Raw\Python\todo_drf_DI1\frontend\.pnp
+Raw\Python\todo_drf_DI1\frontend\.pnp.js
+Raw\Python\todo_drf_DI1\frontend\coverage
+Raw\Python\todo_drf_DI1\frontend\build
+Raw\Python\todo_drf_DI1\frontend\.DS_Store
+Raw\Python\todo_drf_DI1\frontend\.env.local
+Raw\Python\todo_drf_DI1\frontend\.env.development.local
+Raw\Python\todo_drf_DI1\frontend\.env.test.local
+Raw\Python\todo_drf_DI1\frontend\.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 Raw/Python/pantryapp/.idea
 Raw/Python/pantryapp/venv
@@ -15,3 +29,5 @@ Raw/Python/pantryapp/.DS_Store
 Raw/Python/pantryapp/*.pyc
 Raw/Python/pantryapp/*~
 Raw/Python/pantryapp/static
+
+
