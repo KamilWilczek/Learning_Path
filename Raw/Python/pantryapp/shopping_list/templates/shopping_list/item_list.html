@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping list</title>
+</head>
+<body>
+    <h1>{{request.user|title}} Shopping list</h1>
+    <h3>To buy: {{count}}</h3>
+    <div>
+        <a href="{% url 'item-create' %}">Add</a>
+    </div>
+    {% for item in items %}
+        <div>
+            {% if item.complete %}
+                <div>
+                    <div>
+                        <s><a>{{item}} {{item.quantity}} {{item.unit}} {{item.category}}</a></s>
+                    </div>
+                    <i><s><a>{{item.note}}</a></s></i>
+                </div>
+                <br>
+            {% else %}
+                <div>
+                    <div>
+                        <a>{{item}} {{item.quantity}} {{item.unit}} {{item.category}}</a>
+                    </div>
+                    <i><a>{{item.note}}</a></i>
+                </div>
+                <br>
+            {% endif %}
+        </div>
+
+    {% empty %}
+        <h3>No items in list</h3>
+    {% endfor %}
+</body>
+</html>
