@@ -14,8 +14,16 @@ class App extends React.Component {
         },
         editing:false,
       }
+      this.fetchTasks = this.fetchTasks.bind(this)
   };
 
+  componentWillMount(){
+    this.fetchTasks()
+  }
+
+  fetchTasks(){
+    console.log('Fetching...')
+  }
 
   render(){
 
