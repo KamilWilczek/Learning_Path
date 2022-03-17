@@ -8,10 +8,54 @@ class Item(models.Model):
     FRUITS_VEGETABLES = 'FV'
     MEAT = 'MT'
     DIARY = 'D'
+    DRY_GOODS = 'DG'
+    ALCOHOLS = 'ALC'
+    MEDICINE = 'MED'
+    PET_GOODS = 'PG'
+    BABY_GOODS = 'BG'
+    DOMESTIC_DETERGENTS = 'DD'
+    READY_COOK_MEALS = 'RCM'
+    HYGIENE = 'H'
+    COFFEE_TEA = 'CT'
+    FROZEN_FOODS = 'FF'
+    GARDEN_TINKER = 'GT'
+    BREAD = 'B'
+    PRESERVES = 'PV'
+    SPICES = 'S'
+    FISH = 'FS'
+    SWEETS = 'SS'
+    FATS = 'F'
+    DRINKS = 'WD'
+    NUTS = 'DFN'
+    HERBS = 'FH'
+    CANS = 'CF'
+    OTHER = 'O'
     CATEGORIES = [
         (FRUITS_VEGETABLES, 'fruits and vegetables'),
         (MEAT, 'meat'),
         (DIARY, 'diary'),
+        (DRY_GOODS, 'dry goods'),
+        (ALCOHOLS, 'alcohols'),
+        (MEDICINE, 'medicine'),
+        (PET_GOODS, 'pet goods'),
+        (BABY_GOODS, 'baby goods'),
+        (DOMESTIC_DETERGENTS, 'domestic detergents'),
+        (READY_COOK_MEALS, 'ready-cook meals'),
+        (HYGIENE, 'hygiene'),
+        (COFFEE_TEA, 'coffee & tea'),
+        (FROZEN_FOODS, 'frozen foods'),
+        (GARDEN_TINKER, 'garden and tinkering'),
+        (BREAD, 'bread'),
+        (PRESERVES, 'preserves'),
+        (SPICES, 'spices, sauces, additives'),
+        (FISH, 'fishes and seafood'),
+        (SWEETS, 'sweets and snacks'),
+        (FATS, 'fats'),
+        (DRINKS, 'water and drinks'),
+        (NUTS, 'dried fruit and nuts'),
+        (HERBS, 'fresh herbs'),
+        (CANS, 'canned food'),
+        (OTHER, 'other')
     ]
 
     KILOGRAM = 'kg'
