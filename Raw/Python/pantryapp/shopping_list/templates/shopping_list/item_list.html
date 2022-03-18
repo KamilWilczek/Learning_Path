@@ -1,36 +1,78 @@
-<h1>{{request.user|title}} Shopping list</h1>
-{% if request.user.is_authenticated %}
-    <a href="{% url 'logout' %}">Logout</a>
-{% else %}
-    <a href="{% url 'login'%}">Login</a>
-{% endif %}
-<h3>To buy: {{count}}</h3>
-<div>
-    <a href="{% url 'item-create' %}">Add</a>
-</div>
-{% for item in items %}
-    <div>
-        {% if item.complete %}
-            <div>
-                <div>
-                    <s><a href="{% url 'item-update' item.id %}">{{item}} {{item.quantity}} {{item.unit}} {{item.category}}</a></s>
-                </div>
-                <i><s><a>{{item.note}}</a></s></i>
-            </div>
-            <a href="{% url 'item-delete' item.id %}">Delete</a>
-            <br>
+{% extends 'shopping_list/main.html' %}
+{% block content %}
+    <div class="header-bar">
+        <div>
+            <h1>{{request.user|title}} Shopping list</h1>
+            <h3>To buy: {{count}}</h3>
+        </div>
+
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'logout' %}">Logout</a>
         {% else %}
-            <div>
-                <div>
-                    <a href="{% url 'item-update' item.id %}">{{item}} {{item.quantity}} {{item.unit}} {{item.category}}</a>
-                </div>
-                <i><a>{{item.note}}</a></i>
-            </div>
-                <a href="{% url 'item-delete' item.id %}">Delete</a>
-            <br>
+            <a href="{% url 'login'%}">Login</a>
         {% endif %}
+
     </div>
 
-{% empty %}
-    <h3>No items in list</h3>
-{% endfor %}
+    <div id="add-wrapper">
+        <a id="add-link" href="{% url 'item-create' %}">&#x2b;</a>
+    </div>
+
+    <div class="items-products-wrapper">
+        {% for item in items %}
+            {% if item.complete %}
+                <div class="product-wrapper-deleted">
+                    <a class="delete-link" href="{% url 'item-complete' item.id %}">&#x2611;</a>
+                    <div class="item-product">
+                        <div class="item-category">
+                            {{item.category}}
+                        </div>
+                        <div class="item-product-name-wrapper">
+                            <div>
+                                <s><a href="{% url 'item-update' item.id %}">{{item}}</a></s>
+                            </div>
+                            <div>
+                                <i><a>{{item.note}}</a></i>
+                            </div>
+                        </div>
+                        <div class="item-quantity">
+                            {{item.quantity}}
+                        </div>
+                        <div class="item-unit">
+                            {{item.unit}}
+                        </div>
+                    </div>
+                    <a class="delete-link" href="{% url 'item-delete' item.id %}">&#x2715;</a>
+                </div>
+            {% else %}
+                <div class="product-wrapper">
+                    <a class="delete-link" href="{% url 'item-complete' item.id %}">&#x2610</a>
+                    <div class="item-product">
+                        <div class="item-category">
+                            {{item.category}}
+                        </div>
+                        <div class="item-product-name-wrapper">
+                            <div>
+                                <a href="{% url 'item-update' item.id %}">{{item}}</a>
+                            </div>
+                            <div>
+                                <i><a>{{item.note}}</a></i>
+                            </div>
+                        </div>
+                        <div class="item-quantity">
+                            {{item.quantity}}
+                        </div>
+                        <div class="item-unit">
+                            {{item.unit}}
+                        </div>
+                    </div>
+                    <a class="delete-link" href="{% url 'item-delete' item.id %}">&#x2715;</a>
+                </div>
+            {% endif %}
+
+        {% empty %}
+            <h3>No items in list</h3>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

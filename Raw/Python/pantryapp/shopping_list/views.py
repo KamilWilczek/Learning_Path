@@ -70,3 +70,28 @@ class ItemUpdate(LoginRequiredMixin, UpdateView):
 class ItemDelete(LoginRequiredMixin, DeleteView):
     model = Item
     success_url = reverse_lazy('items')
+
+
+class ItemComplete(LoginRequiredMixin, UpdateView):
+    model = Item
+    fields = ['complete']
+    success_url = reverse_lazy('items')
+    template_name = 'shopping_list/item_complete.html'
+    context_object_name = 'item'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        print(context['form'])
+
+        return context
+
+    # def get(self, request, *args, **kwargs):
+        # queryset = Item.complete
+        # print(queryset)
+        # Item.complete = True
+        # print('request', request)
+        # return self.post(request, *args, **kwargs)
+
+    # def form_valid(self, form):
+    #     form.instance.complete = True
+    #     return super(ItemComplete, self).form_valid(form)

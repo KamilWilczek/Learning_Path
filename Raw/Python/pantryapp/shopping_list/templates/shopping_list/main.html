@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Shopping list</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #FAFAFA;
+            font-family: 'Nunito', sans-serif;
+            padding-top: 50px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Raleway', sans-serif;
+        }
+
+        a, p {
+            color: #4b5156
+        }
+
+        .container {
+            max-width: 550px;
+            margin: auto;
+            background-color: #fff;
+            -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+            box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+        }
+
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+            background: linear-gradient(90deg, #8788b1 0%, #6667ab 43%, #6667ab 100%);
+        }
+
+        .header-bar a {
+            color: rgb(247, 247, 247);
+            text-decoration: none;
+        }
+
+        .product-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #fff;
+            border-top: 1px solid #dfe4ea;
+            overflow: hidden;
+        }
+
+        .product-wrapper-deleted {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #8788b1;
+            border-top: 1px solid #dfe4ea;
+            overflow: hidden;
+        }
+
+        .item-product {
+            width: 70%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .item-product a {
+            text-decoration: none;
+            color: #4b5156;
+            margin-left: 10px;
+        }
+
+        .delete-link {
+            text-decoration: none;
+            font-weight: 900;
+            color: #6667ab;
+            font-size: 22px;
+            line-height: 0;
+            padding: 20px 0px;
+        }
+
+        #search-add-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #add-link {
+            margin-left: 30px;
+            color: #6667ab;
+            text-decoration: none;
+            font-size: 42px;
+            text-shadow: 1px 1px #81413b;
+        }
+    </style>
+
+</head>
+<body>
+  <div class="container">
+    {% block content %}
+
+    {% endblock content %}
+  </div>
+
+</body>
+</html>

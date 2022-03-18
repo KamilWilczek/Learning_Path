@@ -1,0 +1,11 @@
+<div>
+  <a href="{% url 'items' %}">Back</a>
+    <h1>dupa</h1>
+</div>
+<div>
+  <form method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Submit">
+  </form>
+</div>

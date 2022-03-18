@@ -58,14 +58,21 @@ class Item(models.Model):
         (OTHER, 'other')
     ]
 
-    KILOGRAM = 'kg'
     PIECES = 'pcs'
     PACKAGES = 'pkgs'
+    KILOGRAM = 'kg'
+    GRAM = 'g'
+    LITER = 'l'
+    MILLILITER = 'ml'
     UNITS = [
-        (KILOGRAM, 'kg'),
         (PIECES, 'pcs'),
         (PACKAGES, 'pkgs'),
+        (KILOGRAM, 'kg'),
+        (GRAM, 'g'),
+        (LITER, 'l'),
+        (MILLILITER, 'ml')
     ]
+
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     product = models.CharField(max_length=200)
     quantity = models.IntegerField(null=True, blank=True)
