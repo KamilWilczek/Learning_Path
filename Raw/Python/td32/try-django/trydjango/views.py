@@ -9,7 +9,7 @@ HTML_STRING = """
 """
 
 
-def home(request):
+def home_view(request):
     """
     Take in a request (Django sedns request)
     Return HTML as a response (We pick to return the response)
