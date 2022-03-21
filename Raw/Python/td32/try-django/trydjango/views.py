@@ -7,12 +7,11 @@ from django.template.loader import render_to_string, get_template
 from articles.models import Article
 
 
-def home_view(request):
+def home_view(request, *args, **kwargs):
     """
     Take in a request (Django sedns request)
     Return HTML as a response (We pick to return the response)
     """
-
     name = "Justin"  # hard coded
     random_id = random.randint(1, 4)  # pseudo random
 
