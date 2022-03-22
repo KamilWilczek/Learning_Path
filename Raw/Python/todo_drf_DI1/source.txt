@@ -1,0 +1,2 @@
+1. https://www.youtube.com/watch?v=TmsD8QExZ84&t=0s Django Rest Framework | Serializers & CRUD
+2. https://www.youtube.com/watch?v=W9BjUoot2Eo React + Django To-Do App | Django REST Framework
