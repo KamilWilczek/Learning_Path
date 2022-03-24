@@ -3,10 +3,11 @@
 
 {% block content %}
 
-<h1>Home template</h1>
+<h1>Home template -https://patine.pl/patine-tie-15-floral-1-bleu-marine-vert-fonce.html</h1>
 
 <div>
     <div>
+        <a href="{% url 'create-room' %}">Create room</a>
         {% for room in rooms %}
             <div>
                 <span>@{{room.host.username}}</span>
