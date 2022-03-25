@@ -9,7 +9,7 @@ class ArticleTestCase(TestCase):
     def setUp(self):
         self.number_of_articles = 500
         for i in range(0, self.number_of_articles):
-            Article.objects.create(title="Hello World", content="somethinf else")
+            Article.objects.create(title="Hello World", content="something else")
 
     def test_queryset_exists(self):
         qs = Article.objects.all()
@@ -50,3 +50,11 @@ class ArticleTestCase(TestCase):
         self.assertEqual(len(slug_list), len(unique_slug_list))
 
     # def test_user_added_slug_unique(self):
+    #
+    def test_article_search_manager(self):
+        qs = Article.objects.search(query="hello world")
+        self.assertEqual(qs.count(), self.number_of_articles)
+        qs = Article.objects.search(query="hello")
+        self.assertEqual(qs.count(), self.number_of_articles)
+        qs = Article.objects.search(query="something else")
+        self.assertEqual(qs.count(), self.number_of_articles)
