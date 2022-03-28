@@ -25,8 +25,11 @@ class RecipeTestCase(TestCase):
         self.recipe_b = Recipe.objects.create(
             name="Grilled Chicken Taco", user=self.user_a
         )
-        self.recipe_ingedient_a = RecipeIngredient.objects.create(
+        self.recipe_ingredient_a = RecipeIngredient.objects.create(
             recipe=self.recipe_a, name="Chciken", quantity="1/2", unit="pound"
+        )
+        self.recipe_ingredient_b = RecipeIngredient.objects.create(
+            recipe=self.recipe_a, name="Chciken", quantity="asafa", unit="pound"
         )
 
     def test_user_count(self):
@@ -46,17 +49,17 @@ class RecipeTestCase(TestCase):
     def test_recipe_ingedient_reverse_count(self):
         recipe = self.recipe_a
         qs = recipe.recipeingredient_set.all()
-        self.assertEqual(qs.count(), 1)
+        self.assertEqual(qs.count(), 2)
 
     def test_recipe_ingedientcount(self):
         recipe = self.recipe_a
         qs = RecipeIngredient.objects.filter(recipe=recipe)
-        self.assertEqual(qs.count(), 1)
+        self.assertEqual(qs.count(), 2)
 
     def test_user_two_level_relation(self):
         user = self.user_a
         qs = RecipeIngredient.objects.filter(recipe__user=user)
-        self.assertEqual(qs.count(), 1)
+        self.assertEqual(qs.count(), 2)
 
     def test_user_two_level_relation_reverse(self):
         user = self.user_a
@@ -65,13 +68,13 @@ class RecipeTestCase(TestCase):
         )
         qs = RecipeIngredient.objects.filter(id__in=recipeingredient_ids)
         print(recipeingredient_ids)
-        self.assertEqual(qs.count(), 1)
+        self.assertEqual(qs.count(), 2)
 
     def test_user_two_level_relation_via_recipes(self):
         user = self.user_a
         ids = user.recipe_set.all().values_list("id", flat=True)
         qs = RecipeIngredient.objects.filter(recipe__id__in=ids)
-        self.assertEqual(qs.count(), 1)
+        self.assertEqual(qs.count(), 2)
 
     def test_unit_measure_validation(self):
         invalid_unit = "ounce"
@@ -89,3 +92,7 @@ class RecipeTestCase(TestCase):
                     name="New", quantity=10, recipe=self.recipe_a, unit=unit
                 )
                 ingredient.full_clean()
+
+    def test_quantity_as_float(self):
+        self.assertIsNotNone(self.recipe_ingredient_a.quantity_as_float)
+        self.assertIsNone(self.recipe_ingredient_b.quantity_as_float)
