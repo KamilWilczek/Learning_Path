@@ -5,8 +5,8 @@
 <p>{{content}}!</p>
 
 <hr>
-<a href="{% url 'article-create' %}">Create Article</a>
-<a href="{% url 'article-detail' slug='hello-world' %}">Hello world article</a>
+<a href="{% url 'article:create' %}">Create Article</a>
+<a href="{% url 'article:detail' slug='hello-world' %}">Hello world article</a>
 <hr>
 
 <ul>{% for x in object_list %}
