@@ -1,0 +1,246 @@
+[
+{
+    "model": "recipes.recipe",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "name": "Grilled Chicken Tacos",
+        "description": "here is my description",
+        "directions": "here is my directions",
+        "timestamp": "2022-03-25T13:50:25.791Z",
+        "updated": "2022-03-29T13:31:17.595Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipe",
+    "pk": 2,
+    "fields": {
+        "user": 1,
+        "name": "New Recipe",
+        "description": "",
+        "directions": "",
+        "timestamp": "2022-03-29T09:04:12.674Z",
+        "updated": "2022-03-30T12:06:13.509Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipe",
+    "pk": 3,
+    "fields": {
+        "user": 1,
+        "name": "Chicken pasta",
+        "description": "",
+        "directions": "",
+        "timestamp": "2022-03-29T13:30:04.672Z",
+        "updated": "2022-03-30T10:16:19.755Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipe",
+    "pk": 4,
+    "fields": {
+        "user": 1,
+        "name": "Pasta HTMX",
+        "description": "",
+        "directions": "",
+        "timestamp": "2022-03-30T12:06:59.466Z",
+        "updated": "2022-03-30T12:20:11.403Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 1,
+    "fields": {
+        "recipe": 1,
+        "name": "Grilled chicken",
+        "description": "",
+        "quantity": "1/5",
+        "quantity_as_float": 0.2,
+        "unit": "pounds",
+        "directions": "",
+        "timestamp": "2022-03-25T14:04:57.463Z",
+        "updated": "2022-03-29T13:31:17.608Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 2,
+    "fields": {
+        "recipe": 1,
+        "name": "Salsa",
+        "description": "",
+        "quantity": "8",
+        "quantity_as_float": 8.0,
+        "unit": "ounces",
+        "directions": "",
+        "timestamp": "2022-03-28T10:14:17.042Z",
+        "updated": "2022-03-29T13:31:17.615Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 3,
+    "fields": {
+        "recipe": 1,
+        "name": "Cheese",
+        "description": "",
+        "quantity": "4",
+        "quantity_as_float": 4.0,
+        "unit": "ounces",
+        "directions": "",
+        "timestamp": "2022-03-28T10:17:17.807Z",
+        "updated": "2022-03-29T13:31:17.622Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 4,
+    "fields": {
+        "recipe": 3,
+        "name": "Grilled chicken",
+        "description": "",
+        "quantity": "1",
+        "quantity_as_float": 1.0,
+        "unit": "pounds",
+        "directions": "",
+        "timestamp": "2022-03-30T09:30:20.994Z",
+        "updated": "2022-03-30T10:16:19.764Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 5,
+    "fields": {
+        "recipe": 3,
+        "name": "Pasta Noodles",
+        "description": "",
+        "quantity": "16",
+        "quantity_as_float": 16.0,
+        "unit": "ounces",
+        "directions": "",
+        "timestamp": "2022-03-30T09:30:20.995Z",
+        "updated": "2022-03-30T10:16:19.774Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 6,
+    "fields": {
+        "recipe": 3,
+        "name": "Broccoli",
+        "description": "",
+        "quantity": "8",
+        "quantity_as_float": 8.0,
+        "unit": "oz",
+        "directions": "",
+        "timestamp": "2022-03-30T09:30:20.996Z",
+        "updated": "2022-03-30T10:16:19.780Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 7,
+    "fields": {
+        "recipe": 3,
+        "name": "Tomato",
+        "description": "",
+        "quantity": "1",
+        "quantity_as_float": 1.0,
+        "unit": "oz",
+        "directions": "",
+        "timestamp": "2022-03-30T09:30:20.996Z",
+        "updated": "2022-03-30T10:16:19.787Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 8,
+    "fields": {
+        "recipe": 2,
+        "name": "burak",
+        "description": null,
+        "quantity": "1",
+        "quantity_as_float": 1.0,
+        "unit": "pounds",
+        "directions": null,
+        "timestamp": "2022-03-30T11:25:10.594Z",
+        "updated": "2022-03-30T11:25:10.594Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 9,
+    "fields": {
+        "recipe": 2,
+        "name": "burak",
+        "description": null,
+        "quantity": "1",
+        "quantity_as_float": 1.0,
+        "unit": "pounds",
+        "directions": null,
+        "timestamp": "2022-03-30T11:25:13.767Z",
+        "updated": "2022-03-30T11:25:13.767Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 10,
+    "fields": {
+        "recipe": 2,
+        "name": "burak",
+        "description": null,
+        "quantity": "1",
+        "quantity_as_float": 1.0,
+        "unit": "pounds",
+        "directions": null,
+        "timestamp": "2022-03-30T12:06:13.520Z",
+        "updated": "2022-03-30T12:06:13.520Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 11,
+    "fields": {
+        "recipe": 4,
+        "name": "Pasta Noodles",
+        "description": null,
+        "quantity": "1",
+        "quantity_as_float": 1.0,
+        "unit": "oz",
+        "directions": null,
+        "timestamp": "2022-03-30T12:08:25.954Z",
+        "updated": "2022-03-30T12:20:11.423Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 12,
+    "fields": {
+        "recipe": 4,
+        "name": "Pico Salsa",
+        "description": null,
+        "quantity": "12",
+        "quantity_as_float": 12.0,
+        "unit": "ounces",
+        "directions": null,
+        "timestamp": "2022-03-30T12:20:11.441Z",
+        "updated": "2022-03-30T12:20:11.441Z",
+        "active": true
+    }
+}
+]
