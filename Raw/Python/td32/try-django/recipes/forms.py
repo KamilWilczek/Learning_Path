@@ -12,6 +12,7 @@ class RecipeForm(forms.ModelForm):
         widget=forms.TextInput(
             attrs={"class": "form-control", "placeholder": "Recipe name"}
         ),
+        help_text="This is your help! <a href='/contact/'>Contact us</a>",
     )
     # description = forms.CharField(widget=forms.Textarea(attrs={"rows": 3}))
 
