@@ -23,10 +23,8 @@
     <body>
         <h1>Hello World</h1>
         <a href="/logout/">Logout</a>
-        <form action="/articles/" method="GET">
-            <input type="text" name="q"/>
-            <input type="submit"/>
-        </form>
+        {% include 'search/search-form.html' %}
+
         {% block content %}
             <h3>This will be replaced</h3>
         {% endblock content %}
