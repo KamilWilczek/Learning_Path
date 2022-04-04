@@ -161,9 +161,11 @@ STATIC_URL = "static/"
 
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
-STATIC_ROOT = BASE_DIR / "staticfiles_cdn"
+# STATIC_ROOT = BASE_DIR / "staticfiles-cdn"
 
-from .cdn.conf import *  # noqa
+MEDIA_ROOT = BASE_DIR / "staticfiles-cdn" / "uploads"
+
+# from .cdn.conf import *  # noqa
 
 # in production, we want cdn -> content delivery network
 
