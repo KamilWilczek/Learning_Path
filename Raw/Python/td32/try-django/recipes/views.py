@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 
 from .models import Recipe, RecipeIngredient
-from .forms import RecipeForm, RecipeIngredientForm
+from .forms import RecipeForm, RecipeIngredientForm, RecipeIngredientImageForm
 
 # Create your views here.
 
@@ -162,3 +162,20 @@ def recipe_ingredient_update_hx_view(request, id=None, parent_id=None):
         return render(request, "recipes/partials/ingredient-inline.html", context)
 
     return render(request, "recipes/partials/ingredient-form.html", context)
+
+
+def recipe_ingredient_image_upload_view(request, parent_id=None):
+    try:
+        parent_obj = Recipe.objects.get(id=parent_id, user=request.user)
+    except:
+        parent_obj = None
+    if parent_obj is None:
+        raise Http404
+    form = RecipeIngredientImageForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        obj = form.save(commit=False)
+        obj.recipe = parent_id
+        # obj.recipe_id = parent_id
+        obj.save()
+    context = {"form": form}
+    return render(request, "image-form.html", context)
