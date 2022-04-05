@@ -5,7 +5,8 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 
 from .models import Recipe, RecipeIngredient
-from .forms import RecipeForm, RecipeIngredientForm
+from .forms import RecipeForm, RecipeIngredientForm, RecipeIngredientImageForm
+from .services import extract_text_via_ocr_service
 
 # Create your views here.
 
@@ -27,28 +28,52 @@ def recipe_detail_view(request, id=None):
 
 @login_required
 def recipe_delete_view(request, id=None):
-    obj = get_object_or_404(Recipe, id=id, user=request.user)
+    try:
+        obj = Recipe.objects.get(id=id, user=request.user)
+    except:
+        obj = None
+
+    if obj is None:
+        if request.htmx:
+            return HttpResponse("Not Found")
+        raise Http404
 
     if request.method == "POST":
         obj.delete()
         success_url = reverse("recipes:list")
+        if request.htmx:
+            headers = {"HX-Redirect": success_url}
+            return HttpResponse("Success", headers=headers)
         return redirect(success_url)
-
     context = {"object": obj}
     return render(request, "recipes/delete.html", context)
 
 
 @login_required
 def recipe_ingredient_delete_view(request, parent_id=None, id=None):
-    obj = get_object_or_404(
-        RecipeIngredient, recipe__id=parent_id, id=id, recipe__user=request.user
-    )
+    try:
+        obj = RecipeIngredient.objects.get(
+            recipe__id=parent_id, id=id, recipe__user=request.user
+        )
+    except:
+        obj = None
+
+    if obj is None:
+        if request.htmx:
+            return HttpResponse("Not Found")
+        raise Http404
 
     if request.method == "POST":
+        name = obj.name
         obj.delete()
         success_url = reverse("recipes:detail", kwargs={"id": parent_id})
+        if request.htmx:
+            return render(
+                request,
+                "recipes/partials/ingredient-inline-delete-response.html",
+                {"name": name},
+            )
         return redirect(success_url)
-
     context = {"object": obj}
     return render(request, "recipes/delete.html", context)
 
@@ -138,3 +163,34 @@ def recipe_ingredient_update_hx_view(request, id=None, parent_id=None):
         return render(request, "recipes/partials/ingredient-inline.html", context)
 
     return render(request, "recipes/partials/ingredient-form.html", context)
+
+
+def recipe_ingredient_image_upload_view(request, parent_id=None):
+    template_name = "recipes/upload-image.html"
+    if request.htmx:
+        template_name = "recipes/partials/image-upload-form.html"
+    try:
+        parent_obj = Recipe.objects.get(id=parent_id, user=request.user)
+    except:
+        parent_obj = None
+    if parent_obj is None:
+        raise Http404
+    form = RecipeIngredientImageForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        obj = form.save(commit=False)
+        obj.recipe = parent_obj
+        # obj.recipe_id = parent_id
+        obj.save()
+        # _------------------------------
+        # send image file -> microservice api
+        # microservice api -> data about the file
+        # cloud providers $$
+
+        # obj.image -> File
+        # result = extract_text_via_ocr_service(obj.image)
+        # obj.extracted = result
+        # obj.save()
+        # print(obj.extracted)
+        # _----------------------------------------
+    context = {"form": form}
+    return render(request, template_name, context)

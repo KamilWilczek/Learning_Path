@@ -1,7 +1,12 @@
-from tkinter import Widget
 from django import forms
 
-from .models import Recipe, RecipeIngredient
+from .models import Recipe, RecipeIngredient, RecipeIngredientImage
+
+
+class RecipeIngredientImageForm(forms.ModelForm):
+    class Meta:
+        model = RecipeIngredientImage
+        fields = ["image"]
 
 
 class RecipeForm(forms.ModelForm):

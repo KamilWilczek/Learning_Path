@@ -1,0 +1,15 @@
+.htmx-indicator {
+  display: none;
+}
+
+.htmx-request .htmx-indicator {
+  display: inline;
+}
+
+.htmx-invertes-indicator {
+  display: inline;
+}
+
+.htmx-request .htmx-invertes-indicator {
+  display: none;
+}
