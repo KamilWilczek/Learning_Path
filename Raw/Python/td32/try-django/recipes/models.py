@@ -87,6 +87,7 @@ class RecipeIngredientImage(models.Model):
     image = models.ImageField(upload_to=recipe_ingredient_image_upload_handler)
     # image
     # extracted_text
+    # extracted = models.JSONField(blank=True, null=True)
 
 
 class RecipeIngredient(models.Model):

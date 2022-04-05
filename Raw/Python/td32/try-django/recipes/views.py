@@ -1,4 +1,3 @@
-from re import template
 from django.contrib.auth.decorators import login_required
 from django.forms.models import modelformset_factory  # model form for querysets
 from django.http import Http404, HttpResponse
@@ -7,6 +6,7 @@ from django.urls import reverse
 
 from .models import Recipe, RecipeIngredient
 from .forms import RecipeForm, RecipeIngredientForm, RecipeIngredientImageForm
+from .services import extract_text_via_ocr_service
 
 # Create your views here.
 
@@ -181,5 +181,16 @@ def recipe_ingredient_image_upload_view(request, parent_id=None):
         obj.recipe = parent_obj
         # obj.recipe_id = parent_id
         obj.save()
+        # _------------------------------
+        # send image file -> microservice api
+        # microservice api -> data about the file
+        # cloud providers $$
+
+        # obj.image -> File
+        # result = extract_text_via_ocr_service(obj.image)
+        # obj.extracted = result
+        # obj.save()
+        # print(obj.extracted)
+        # _----------------------------------------
     context = {"form": form}
     return render(request, template_name, context)
