@@ -8,7 +8,9 @@ const ListItem = (props) => (
     <div>
       <h2 className="listItem__name">{props.name}</h2>
       <p className="listItem__description">{props.description}</p>
-      <button className="listItem__button">visit twitter page</button>
+      <a href={props.link} className="listItem__button">
+        visit twitter page
+      </a>
     </div>
   </li>
 )
