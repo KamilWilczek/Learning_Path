@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types';
-import './ListItem.css'
+import React from "react";
+import PropTypes from "prop-types";
+import "./ListItem.css";
 
 const ListItem = ({ name, description, image, twitterLink }) => (
   <li className="listItem__wrapper">
@@ -13,17 +13,17 @@ const ListItem = ({ name, description, image, twitterLink }) => (
       </a>
     </div>
   </li>
-)
+);
 
 ListItem.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   image: PropTypes.string,
-  twitterLink: PropTypes.string.isRequired,
-}
+  twitterLink: PropTypes.string.isRequired
+};
 
 ListItem.defaultProps = {
-  description: 'One of the React creators',
-}
+  description: "One of the React creators"
+};
 
-export default ListItem
+export default ListItem;
