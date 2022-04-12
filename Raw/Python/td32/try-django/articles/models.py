@@ -7,7 +7,7 @@ from django.urls import reverse
 from .utils import slugify_instance_title
 
 # Create your models here.
-User = settings.AUTH_USER_MODEL
+# User = settings.AUTH_USER_MODEL
 
 
 class ArticleQuerySet(models.QuerySet):

@@ -21,7 +21,6 @@ from .validators import validate_unit_of_measure
         - Ingredients
         - Directions for Ingredients
 """
-User = settings.AUTH_USER_MODEL
 
 
 class RecipeQuerySet(models.QuerySet):
