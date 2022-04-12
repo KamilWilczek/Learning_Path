@@ -43,6 +43,13 @@ Raw/Python/td32/try-django/db.sqlite3
 Raw/Python/td32/try-django/.env
 Raw/Python/td32/try-django/staticfiles-cdn
 
+Raw/Python/td32/try-django/accounts/migrations
+Raw/Python/td32/try-django/articles/migrations
+Raw/Python/td32/try-django/recipes/migrations
+Raw/Python/td32/try-django/search/migrations
+Raw/Python/td32/try-django/accounts/migrations
+
+
 # study_budy
 Raw/Python/study_budy/env
 Raw/Python/study_budy/studybudy/__pycache__
