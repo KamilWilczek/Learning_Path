@@ -6,6 +6,7 @@
 
 <a href='{% url "articles:create" %}'>Create Article</a>
 <a href='{% url "articles:detail" slug="hello-world" %}'>Hello world article</a>
+
 <ul>
     {% for x in object_list %}
         {% if x.title %}
