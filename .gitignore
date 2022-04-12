@@ -35,7 +35,7 @@ Raw/Python/td32/try-django/bin
 # Raw/Python/td32/try-django/include
 Raw/Python/td32/try-django/lib
 Raw/Python/td32/try-django/lib64
-Raw/Python/td32/try-django/pyvenv.cfg
+# Raw/Python/td32/try-django/pyvenv.cfg
 Raw/Python/td32/try-django/trydjango/__pycache__
 Raw/Python/td32/try-django/accounts/__pycache__
 Raw/Python/td32/try-django/articles/__pycache__
