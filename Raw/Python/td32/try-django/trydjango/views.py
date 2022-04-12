@@ -22,7 +22,6 @@ def home_view(request, *args, **kwargs):
         "object_list": article_queryset,
         "object": article_obj,
     }
-    #
     # Django Templates
     HTML_STRING = render_to_string("home-view.html", context=context)
     # HTML_STRING = """

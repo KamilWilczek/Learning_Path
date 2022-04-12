@@ -4,7 +4,9 @@ https://www.youtube.com/watch?v=FjWbMNw6Wk0&list=PLEsfXFp6DpzRMby_cSoWTFw8zaMdTE
 "For everyone following this tutorial: make sure there isn't a mismatch between the POSTGRES_USERNAME variable set up in the settings.py file and the environment variable, as Justin pointed out in 44:33. Also, if you have been following along the tutorial and are trying to deploy from your local files, your "home_view" function might take a random integer and query an Article against the database. That might cause some errors after deploying so make sure the query isn't trying to access a register that hasn't been created yet."
 
 #################################################################
+
 home-view:
+
 ################################################################
 {% extends "base.html" %}
 
@@ -24,7 +26,9 @@ home-view:
 
 {% endblock content %}
 ####################################################################
-views.py
+
+views.py:
+
 ####################################################################
 """
 To render html web pages
