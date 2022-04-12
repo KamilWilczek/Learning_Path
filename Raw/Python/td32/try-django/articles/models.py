@@ -28,7 +28,7 @@ class ArticleManager(models.Manager):
 
 class Article(models.Model):
     # https://docs.djangoproject.com/en/4.0/topics/db/models/#field-types
-    user = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
+    # user = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=120)
     slug = models.SlugField(unique=True, blank=True, null=True)
     content = models.TextField()
