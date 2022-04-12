@@ -32,7 +32,7 @@ Raw/Python/pantryapp/*~
 Raw/Python/pantryapp/static
 
 Raw/Python/td32/try-django/bin
-# Raw/Python/td32/try-django/include
+Raw/Python/td32/try-django/include
 Raw/Python/td32/try-django/lib
 Raw/Python/td32/try-django/lib64
 Raw/Python/td32/try-django/pyvenv.cfg
