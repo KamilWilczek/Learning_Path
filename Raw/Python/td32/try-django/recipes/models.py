@@ -44,7 +44,7 @@ class RecipeManager(models.Manager):
 
 
 class Recipe(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey("auth.User", on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True, null=True)
     directions = models.TextField(blank=True, null=True)
