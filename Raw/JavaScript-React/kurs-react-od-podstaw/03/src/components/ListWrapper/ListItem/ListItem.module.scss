@@ -25,6 +25,13 @@
       height: 150px;
       border-radius: 50%;
   }
+
+  .imageNone {
+      @extend .image;
+
+      background: url('https://unsplash.it/200/200') no-repeat;
+      background-color: cover;
+  }
   
   .name {
       margin: 0;
