@@ -1,18 +1,11 @@
 import React from 'react'
 
 class MyComponent extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            text: ''
-        }
-
-        this.handleChange = this.handleChange.bind(this)
+    state = {
+        text: '',
     }
-    // ^ old way if we do not overwrite extended class constructor
 
-    handleChange(e) {
+    handleChange = (e) => {
         this.setState({ text: e.target.value.toUpperCase() })
     }
 
