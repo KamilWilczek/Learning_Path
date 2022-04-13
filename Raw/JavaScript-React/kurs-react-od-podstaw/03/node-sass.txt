@@ -1,0 +1,15 @@
+Dla wszystkich tych, który mają error:
+Error: Node Sass version 5.0.0 is incompatible with ^4.0.0.
+
+Aby wszystko zaczęło działać tak jak na filmie,
+1> node_modules/node-sass/package.json
+2> zmienić version na "version": "4.14.1"
+
+lub
+
+Jednym z rozwiązań w przypadku błędu:
+Error: Node Sass version 5.0.0 is incompatible with ^4.0.0.
+
+to użyć komend:
+1. npm uninstall node-sass
+2. npm install node-sass@4.14.1
