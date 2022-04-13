@@ -15,12 +15,15 @@ const ListItem = ({
         />
         <div>
             <h2 className="listItem__name">
-            {name}
+                {name}
             </h2>
             <p className="listItem__description">
-            {description}
+                {description}
             </p>
-            <a href={twitterLink} className="listItem__button">visit twitter page</a>
+            <a href={twitterLink}
+                target='_blank'
+                rel='noopener noreferrer'
+                className="listItem__button">visit twitter page</a>
         </div>
     </li>
 );
