@@ -1,15 +1,12 @@
 .htmx-indicator {
-  display: none;
+    display: none;
 }
-
 .htmx-request .htmx-indicator {
-  display: inline;
+    display: inline;
 }
-
-.htmx-invertes-indicator {
-  display: inline;
+.htmx-inverted-indicator {
+    display: inline;
 }
-
-.htmx-request .htmx-invertes-indicator {
-  display: none;
+.htmx-request .htmx-inverted-indicator {
+    display: none;
 }

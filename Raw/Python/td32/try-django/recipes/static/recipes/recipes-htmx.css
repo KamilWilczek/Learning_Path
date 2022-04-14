@@ -4,15 +4,12 @@ body {
 .htmx-indicator {
   display: none;
 }
-
 .htmx-request .htmx-indicator {
   display: inline;
 }
-
-.htmx-invertes-indicator {
+.htmx-inverted-indicator {
   display: inline;
 }
-
-.htmx-request .htmx-invertes-indicator {
+.htmx-request .htmx-inverted-indicator {
   display: none;
 }

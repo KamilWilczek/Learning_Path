@@ -77,14 +77,16 @@ class Recipe(models.Model):
 
 def recipe_ingredient_image_upload_handler(instance, filename):
     fpath = pathlib.Path(filename)
-    new_fname = str(uuid.uuid1())  # uuid1 -> uuid + timestamp
+    new_fname = str(uuid.uuid1())  # uuid1 -> uuid + timestamps
     return f"recipes/ingredient/{new_fname}{fpath.suffix}"
 
 
 class RecipeIngredientImage(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     # image = models.FileField(upload_to="recipes/")  # path/to/the/actual/file.png
-    image = models.ImageField(upload_to=recipe_ingredient_image_upload_handler)
+    image = models.ImageField(
+        upload_to=recipe_ingredient_image_upload_handler
+    )  # path/to/the/actual/file.png
     # image
     # extracted_text
     # extracted = models.JSONField(blank=True, null=True)
