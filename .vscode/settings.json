@@ -1,4 +1,7 @@
 {
     "python.formatting.provider": "black",
-    "solidity.compileUsingRemoteVersion": "v0.8.6+commit.11564f7e"
+    "solidity.compileUsingRemoteVersion": "v0.8.6+commit.11564f7e",
+    "emmet.includeLanguages": {
+        "javascript":"javascriptreact"
+    }
 }

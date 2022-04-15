@@ -1,0 +1,1 @@
+Switch nie działa, zamiast tego jest <Routes>
