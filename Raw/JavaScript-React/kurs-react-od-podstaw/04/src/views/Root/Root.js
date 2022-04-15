@@ -1,18 +1,17 @@
 import React from "react";
-import List from "./components/List/List";
 import "./index.css";
-import Form from "./components/Form/Form";
+
 
 const initialStateItems = [
   {
-    image: "https://pbs.twimg.com/profile_images/906557353549598720/oapgW_Fp.jpg",
+    image: "https://avatars.githubusercontent.com/u/810438?v=4",
     name: "Dan Abramov",
     description: "React core member",
     twitterLink: "https://twitter.com/dan_abramov"
   }
 ];
 
-class App extends React.Component {
+class Root extends React.Component {
   state = {
     items: [...initialStateItems],
   };
@@ -37,11 +36,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <List items={this.state.items} />
-        <Form submitFn={this.addItem} />
+        <h1>hello world</h1>
       </div>
     );
   }
 }
 
-export default App;
+export default Root;
