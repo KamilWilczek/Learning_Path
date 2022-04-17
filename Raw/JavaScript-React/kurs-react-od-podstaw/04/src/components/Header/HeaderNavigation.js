@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
-import styles from './Navigation.module.scss';
+import styles from './HeaderNavigation.module.scss';
 
 
-const Navigation = () => (
+const HeaderNavigation = () => (
     <ul className={styles.wrapper}>
         <li className={styles.navItem}><NavLink className={({isActive}) => (isActive ? styles.navItemLinkActive : styles.navItemLink )} to="/">twitters</NavLink></li>
         <li className={styles.navItem}><NavLink className={({isActive}) => (isActive ? styles.navItemLinkActive : styles.navItemLink )} to="/articles">articles</NavLink></li>
@@ -11,4 +11,4 @@ const Navigation = () => (
     </ul>
 )
 
-export default Navigation;
+export default HeaderNavigation;

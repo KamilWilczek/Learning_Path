@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, } from 'react-router-dom';
 import ArticlesView from "../ArticlesView/ArticlesView";
 import NotesView from "../NotesView/NotesView";
 import TwittersView from "../TwittersView/TwittersView";
-import Navigation from "../../components/Navigation/Navigation";
+import Header from "../../components/Header/Header";
 
 
 const initialStateItems = [
@@ -42,7 +42,7 @@ class Root extends React.Component {
     return (
       <BrowserRouter>
         <>
-          <Navigation />
+          <Header />
           <h1>hello world</h1>
           <Routes>
             <Route path="/" element={<TwittersView />} />
