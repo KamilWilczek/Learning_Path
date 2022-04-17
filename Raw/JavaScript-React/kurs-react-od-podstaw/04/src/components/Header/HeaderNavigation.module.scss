@@ -1,3 +1,7 @@
+.wrapper {
+    margin-left: 80px;
+    padding: 0;
+}
 .navItem {
     display: inline-block;
     margin-right: 50px;
@@ -6,11 +10,13 @@
     &Link {
         text-decoration: none;
         color: #818181;
+        font-size: .8em;
     
     
         &Active {
             text-decoration: none;
             color: #818181;
+            font-size: .8em;
             font-weight: 700;
         }
     }
