@@ -1,4 +1,5 @@
 .button {
+  display: block;
   font-size: 10px;
   text-decoration: none;
   padding: 7px 12px;
@@ -11,11 +12,11 @@
 
 .secondary {
   @extend .button;
-
+  
   width: 120px;
   background-color: #1e58ff;
   color: white;
   font-weight: 700;
-  font-size: .8em;
+  font-size: .8em; 
   box-shadow: 0 5px 20px -5px rgba(#818181, .9);
 }
