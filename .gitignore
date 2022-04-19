@@ -68,3 +68,8 @@ Raw/JavaScript-React/kurs-react-od-podstaw/04/node_modules
 Raw/JavaScript-React/kurs-react-od-podstaw/05/node_modules
 Raw/JavaScript-React/kurs-react-od-podstaw/06/node_modules
 Raw/JavaScript-React/kurs-react-od-podstaw/07/node_modules
+
+#global
+venv
+node_modules
+.env
