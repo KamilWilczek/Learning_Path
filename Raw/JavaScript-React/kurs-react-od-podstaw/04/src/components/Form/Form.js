@@ -3,6 +3,7 @@ import styles from "./Form.module.scss";
 import Input from "../Input/Input";
 import Button from '../Button/Button';
 import Title from '../Title/Title';
+import Radio from '../Form/FormRadio';
 
 const types = {
   twitter: 'twitter',
@@ -33,24 +34,25 @@ class Form extends React.Component {
       <div className={styles.wrapper}>
         <Title>Add new {descriptions[this.state.activeOption]}</Title>
         <form autoComplete="off" className={styles.form} onSubmit={this.submitFn}>
-          <input
-            id={types.twitter}
-            type='radio'
-            checked={this.state.activeOption === types.twitter}
-            onChange={() => this.handleRadioButtonChange(types.twitter)}
-          />
-          <input
-            id={types.article}
-            type='radio'
-            checked={this.state.activeOption === types.article}
-            onChange={() => this.handleRadioButtonChange(types.article)}
-          />
-          <input
-            id={types.note}
-            type='radio'
-            checked={this.state.activeOption === types.note}
-            onChange={() => this.handleRadioButtonChange(types.note)}
-          />
+          <div className={styles.formOptions}>
+            <Radio id={types.twitter} checked={this.state.activeOption === types.twitter} changeFn={() => this.handleRadioButtonChange(types.twitter)}>
+              Twitter
+            </Radio>
+            <Radio               
+              id={types.article}
+              checked={this.state.activeOption === types.article}
+              changeFn={() => this.handleRadioButtonChange(types.article)}
+            >
+              Article
+            </Radio>
+            <Radio               
+              id={types.note}
+              checked={this.state.activeOption === types.note}
+              changeFn={() => this.handleRadioButtonChange(types.note)}
+            >
+              Note
+            </Radio>
+          </div>
           <Input
             name="name"
             label="Name"
