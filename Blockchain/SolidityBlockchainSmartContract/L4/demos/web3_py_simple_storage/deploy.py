@@ -37,9 +37,10 @@ bytecode = compiled_sol["contracts"]["SimpleStorage.sol"]["SimpleStorage"]["evm"
 abi = compiled_sol["contracts"]["SimpleStorage.sol"]["SimpleStorage"]["abi"]
 
 # for connecting to ganache
-w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:7545"))
-chain_id = 1337
-my_address = "0xb52F9380Cc9394Edd45eFd1885b266c77fd28787"
+w3 = Web3(Web3.HTTPProvider(os.environ.get("HTTP_PROVIDER")))
+chain_id = int(os.environ.get("CHAIN_ID"))
+# chain_id = 4
+my_address = os.environ.get("ADDRESS")
 # for production - never hard-code private keys
 private_key = os.environ.get("PRIVATE_KEY")
 
@@ -48,7 +49,7 @@ SimpleStorage = w3.eth.contract(abi=abi, bytecode=bytecode)
 
 # get the latest transaction
 nonce = w3.eth.getTransactionCount(my_address)
-print(nonce)
+print("nonce", nonce)
 # 1. Build a transaction
 # 2. Sign a trnsaction
 # 3. Send a trtansaction
@@ -62,8 +63,10 @@ transaction = SimpleStorage.constructor().buildTransaction(
 )
 signed_tx = w3.eth.account.sign_transaction(transaction, private_key=private_key)
 # Send this signed transaction
+print("Deploying contract...")
 tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
 tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+print("Deployed!")
 
 # Working with the contract, you always need
 # Contract Address
@@ -74,4 +77,19 @@ simple_storage = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
 
 # Initial value of favorite number
 print(simple_storage.functions.retrieve().call())
-print(simple_storage.functions.store(15).call())
+print("Updating contract...")
+store_transaction = simple_storage.functions.store(15).buildTransaction(
+    {
+        "chainId": chain_id,
+        "from": my_address,
+        "nonce": nonce + 1,
+        "gasPrice": w3.eth.gas_price,
+    }
+)
+signed_store_txn = w3.eth.account.sign_transaction(
+    store_transaction, private_key=private_key
+)
+send_store_tx = w3.eth.send_raw_transaction(signed_store_txn.rawTransaction)
+tx_receipt = w3.eth.wait_for_transaction_receipt(send_store_tx)
+print("Updated!")
+print(simple_storage.functions.retrieve().call())
