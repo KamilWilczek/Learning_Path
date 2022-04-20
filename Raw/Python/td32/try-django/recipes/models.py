@@ -89,7 +89,7 @@ class RecipeIngredientImage(models.Model):
     )  # path/to/the/actual/file.png
     # image
     # extracted_text
-    # extracted = models.JSONField(blank=True, null=True)
+    extracted = models.JSONField(blank=True, null=True)
 
 
 class RecipeIngredient(models.Model):

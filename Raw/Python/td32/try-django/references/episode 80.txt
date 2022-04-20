@@ -1,0 +1,24 @@
+1. Reference Post - https://kirr.co/usaoez
+2. Sign up for DigitalOcean - https://do.co/cfe-youtube
+3. Install doctl - https://kirr.co/dxcc48
+4. Get API Token - https://kirr.co/7x8r90
+5. Install the new token with:
+```
+doctl auth init --context main
+```
+
+CRETAE app command
+```
+echo "$(doctl apps create --spec Raw/Python/td32/try-django/.do/app.yaml --format "Spec.Name, ID" --no-header)" > Raw/Python/td32/try-django/app-id.txt
+```
+
+UPDATE
+```
+doctl apps update "$(cat Raw/Python/td32/try-django/app-id.txt)" --spec Raw/Python/td32/try-django/.do/app.yaml
+# doctl apps update b657ec56-a680-4f14-a9a1-221187f0213d --spec Raw/Python/td32/try-django/.do/app.yaml
+```
+
+DELETE
+```
+doctl apps delete "$(cat app-id.txt)"
+```

@@ -187,9 +187,9 @@ def recipe_ingredient_image_upload_view(request, parent_id=None):
         # cloud providers $$
 
         # obj.image -> File
-        # result = extract_text_via_ocr_service(obj.image)
-        # obj.extracted = result
-        # obj.save()
+        result = extract_text_via_ocr_service(obj.image)
+        obj.extracted = result
+        obj.save()
         # print(obj.extracted)
         # _----------------------------------------
     context = {"form": form}

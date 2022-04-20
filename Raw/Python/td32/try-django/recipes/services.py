@@ -3,11 +3,12 @@ import os
 
 from django.core.files import File
 
+
 OCR_API_TOKEN_HEADER = os.environ.get("OCR_API_TOKEN_HEADER")
 OCR_API_ENDPOINT = os.environ.get("OCR_API_ENDPOINT")
 
 
-def extract_text_via_ocr_service(file_obj: File):
+def extract_text_via_ocr_service(file_obj: File = None):
     data = {}
     if OCR_API_ENDPOINT is None:
         return data
@@ -16,7 +17,7 @@ def extract_text_via_ocr_service(file_obj: File):
     if file_obj is None:
         return data
     # get image
-    # send imahe through HTTP POST
+    # send image through HTTP POST
     # return dict {}
     headers = {"Authorization": f"Bearer {OCR_API_TOKEN_HEADER}"}
     with file_obj.open("rb") as f:
