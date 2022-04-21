@@ -1,5 +1,4 @@
 import sys
-import requests
 from formatting import format_msg
 from send_mail import send_mail
 
