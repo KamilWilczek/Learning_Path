@@ -8,37 +8,34 @@ import Header from '../../components/Header/Header';
 import Modal from '../../components/Modal/Modal';
 import AppContext from "../../context";
 
-const initialStateItems = [
-  {
-    image: "https://pbs.twimg.com/profile_images/906557353549598720/oapgW_Fp.jpg",
-    name: "Dan Abramov",
-    description: "React core member",
-    twitterLink: "https://twitter.com/dan_abramov"
-  }
-];
 
 class Root extends React.Component {
   state = {
-    items: [...initialStateItems],
+    items: {
+      twitters: [],
+      articles: [],
+      notes: [],
+    },
     isModalOpen: false,
-    name: 'roman',
   };
 
   addItem = e => {
     e.preventDefault();
 
-    const newItem = {
-      name: e.target[0].value,
-      twitterLink: e.target[1].value,
-      image: e.target[2].value,
-      description: e.target[3].value
-    };
+    console.log('it works!')
 
-    this.setState(prevState => ({
-      items: [...prevState.items, newItem]
-    }));
+    // const newItem = {
+    //   name: e.target[0].value,
+    //   twitterLink: e.target[1].value,
+    //   image: e.target[2].value,
+    //   description: e.target[3].value
+    // };
 
-    e.target.reset();
+    // this.setState(prevState => ({
+    //   items: [...prevState.items, newItem]
+    // }));
+
+    // e.target.reset();
   };
 
   openModal = () => {
@@ -55,10 +52,14 @@ class Root extends React.Component {
 
   render() {
     const { isModalOpen } = this.state;
+    const contextElemnts = {
+      ...this.state,
+      addItem: this.addItem
+    }
 
     return (
       <BrowserRouter>
-        <AppContext.Provider value={this.state.name}>
+        <AppContext.Provider value={contextElemnts}>
           <Header openModalFn={this.openModal} />
           <h1>hello world</h1>
           <Routes>
@@ -74,3 +75,11 @@ class Root extends React.Component {
 }
 
 export default Root;
+
+
+// Todos:
+// 1. usunąć initialStateItems - O.K.
+// 2. przywrócic funkcjonowanie addItem
+// 3. dopasować Form.js do nowych potrzeb
+// 4. przystosować widoki podstron do nowych itemów
+// 5. wyświetlać odpowiednie notatki na podstronach
