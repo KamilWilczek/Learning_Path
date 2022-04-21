@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "D:/Kursy/Automate the boring stuff/S12-Debugging/35-raiseAssertStatements.py", line 35, in <module>
+    raise Exception('This is the error message.')
+Exception: This is the error message.
+Traceback (most recent call last):
+  File "D:/Kursy/Automate the boring stuff/S12-Debugging/35-raiseAssertStatements.py", line 36, in <module>
+    raise Exception('This is the error message.')
+Exception: This is the error message.
+Traceback (most recent call last):
+  File "D:/Kursy/Automate the boring stuff/S12-Debugging/35-raiseAssertStatements.py", line 36, in <module>
+    raise Exception('This is the error message.')
+Exception: This is the error message.
+Traceback (most recent call last):
+  File "D:/Kursy/Automate the boring stuff/S12-Debugging/35-raiseAssertStatements.py", line 36, in <module>
+    raise Exception('This is the error message.')
+Exception: This is the error message.
+Traceback (most recent call last):
+  File "D:/Kursy/Automate the boring stuff/S12-Debugging/35-raiseAssertStatements.py", line 37, in <module>
+    raise Exception('This is the error message.')
+Exception: This is the error message.

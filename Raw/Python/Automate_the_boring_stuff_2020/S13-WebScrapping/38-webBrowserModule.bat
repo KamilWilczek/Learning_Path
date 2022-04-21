@@ -1,0 +1,1 @@
+@py.exe d:\Kursy\Automate the boring stuff\S13-WebScrapping\38-webBrowserModule.py %*
