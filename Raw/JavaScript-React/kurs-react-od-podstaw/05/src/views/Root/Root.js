@@ -79,7 +79,7 @@ export default Root;
 
 // Todos:
 // 1. usunąć initialStateItems - O.K.
-// 2. przywrócic funkcjonowanie addItem
-// 3. dopasować Form.js do nowych potrzeb
+// 2. przywrócic funkcjonowanie addItem - O.K.
+// 3. dopasować Form.js do nowych potrzeb - O.K.
 // 4. przystosować widoki podstron do nowych itemów
 // 5. wyświetlać odpowiednie notatki na podstronach
