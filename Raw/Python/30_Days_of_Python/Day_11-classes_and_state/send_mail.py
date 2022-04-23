@@ -77,7 +77,7 @@ class Emailer:
                 server.starttls()
                 server.login(username, password)
                 try:
-                    server.sendmail(from_email, to_emails, msg_str)
+                    server.sendmail(self.from_email, to_emails, msg)
                     did_send = True
                 except:
                     did_send = False
