@@ -11,7 +11,7 @@ class Template:
 
     def __init__(self, template_name="", context=None, *args, **kwargs):
         self.template_name = template_name
-        self.contex = context
+        self.context = context
 
     def get_template(self):
         template_path = os.path.join(TEMPLATE_DIR, self.template_name)
