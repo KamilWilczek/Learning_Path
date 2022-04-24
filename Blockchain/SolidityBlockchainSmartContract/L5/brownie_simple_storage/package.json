@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "ganache": "^7.0.4",
+    "ganache-cli": "^6.12.2"
+  },
+  "scripts": {
+    "ganache": "ganache --wallet.seed myCustomSeed"
+  }
+}
