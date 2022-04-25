@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI/CD Django, Postgres, DigitalOcean
+name: Example CI Django, Postgres, DigitalOcean
 
 # Controls when the workflow will run
 on:
@@ -67,21 +67,21 @@ jobs:
       #   run: |
       #     python manage.py collectstatic --noinput
 
-      - name: Push main branch into production
-        uses: codingforentrepreneurs/action-branch-to-branch@main
-        with:
-          dest_branch: 'production-3'
-          source_branch: 'master'
-          commit_message: 'Release production version'
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      # - name: Push main branch into production
+      #   uses: codingforentrepreneurs/action-branch-to-branch@main
+      #   with:
+      #     dest_branch: 'production-3'
+      #     source_branch: 'master'
+      #     commit_message: 'Release production version'
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
-      - name: Install doctl
-        uses: digitalocean/action-doctl@v2
-        with:
-          token: ${{ secrets.DO_ACCESS_TOKEN }}
+      # - name: Install doctl
+      #   uses: digitalocean/action-doctl@v2
+      #   with:
+      #     token: ${{ secrets.DO_ACCESS_TOKEN }}
 
-      - name: Run a DOCTL Command
-        run: |
-          doctl apps updatet ${{ secrets.DO_APP_ID }} --spec .do/app.yaml
+      # - name: Run a DOCTL Command
+      #   run: |
+      #     doctl apps updatet ${{ secrets.DO_APP_ID }} --spec .do/app.yaml
 
