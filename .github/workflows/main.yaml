@@ -68,7 +68,7 @@ jobs:
       #     python manage.py collectstatic --noinput
 
       - name: Push main branch into production
-        uses: KamilWilczek/action-branch-to-branch@master
+        uses: Learning_Path/action-branch-to-branch@master
         with:
           dest_branch: 'production-3'
           source_branch: 'master'
