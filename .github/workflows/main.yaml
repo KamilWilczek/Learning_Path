@@ -67,3 +67,21 @@ jobs:
       #   run: |
       #     python manage.py collectstatic --noinput
 
+      - name: Push main branch into production
+          uses: codingforentrepreneurs/action-branch-to-branch@master
+          with:
+            dest_branch: 'production-3'
+            source_branch: 'master'
+            commit_message: 'Release production version'
+          env:
+            GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DO_ACCESS_TOKEN }}
+
+      - name: Run a DOCTL Command
+        run: |
+          doctl apps updatet ${{ secrets.DO_APP_ID }} --spec .do/app.yaml
+

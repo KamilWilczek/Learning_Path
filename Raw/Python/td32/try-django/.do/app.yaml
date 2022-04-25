@@ -71,7 +71,7 @@ region: fra
 services:
 - environment_slug: python
   github:
-    branch: production-2
+    branch: production-3
     deploy_on_push: true
     repo: KamilWilczek/Learning_Path
   http_port: 8080
