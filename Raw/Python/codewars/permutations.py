@@ -14,25 +14,28 @@ Examples:
 input_string = "aabb"
 
 
-def permutations(input_string):
-    pool = tuple(input_string)
-    n = len(pool)
-    index_list = list(range(n))
-    cycles = list(range(n, 0, -1))
-    yield str(pool[i] for i in index_list[:n])
-    while n:
-        for i in reversed(range(n)):
-            cycles[i] -= 1
-            if cycles[i] == 0:
-                index_list[i:] = index_list[i + 1 :] + index_list[i : i + 1]
-                cycles[i] = n - 1
-            else:
-                j = cycles[i]
-                index_list[i], index_list[-j] = index_list[-j], index_list[i]
-                yield tuple(pool[i] for i in index_list[:n])
-                break
+pool = tuple(input_string)
+n = len(pool)
+index_list = list(range(n))
+cycles = list(range(n, 0, -1))
+# yield str(pool[i] for i in index_list[:n])
+for i in index_list[:n]:
+    print(tuple(pool[i]))
+while n:
+    for i in reversed(range(n)):
+        cycles[i] -= 1
+        if cycles[i] == 0:
+            index_list[i:] = index_list[i + 1 :] + index_list[i : i + 1]
+            cycles[i] = n - 1
         else:
-            return
+            j = cycles[i]
+            index_list[i], index_list[-j] = index_list[-j], index_list[i]
+            # yield tuple(pool[i] for i in index_list[:n])
+            for i in index_list[:n]:
+                print(tuple(pool[i]))
+            break
+    else:
+        print("pusty string")
 
 
 # string_list = []
