@@ -22,3 +22,7 @@ url = "https://www.boxofficemojo.com/year/world/"
 html_text = url_to_txt(url)
 
 r_html = HTML(html=html_text)
+table_class = "a-section imdb-scroll-table mojo-gutter imdb-scroll-table-styles"
+r_table = r_html.find(table_class)
+
+print(r_table)
