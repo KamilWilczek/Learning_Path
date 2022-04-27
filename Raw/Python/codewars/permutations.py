@@ -26,8 +26,24 @@ def permutations(string):
         )
 
 
-# import itertools
+# Best Practice
+import itertools
 
 
-# def permutations(string):
-#     return set("".join(x) for x in itertools.permutations(string, r=len(string)))
+def permutations(string):
+    return list("".join(p) for p in set(itertools.permutations(string)))
+
+
+def permutations(string):
+
+    # using tools to create permuatations of the input string
+    from itertools import permutations
+
+    perm = permutations(string)
+    # putting permutations into a dictionary to remove duplicates
+    # and then putting the permutations back into a list
+    perm_list = list(dict.fromkeys(perm))
+    # joining the tuples in the permuation list together with empty apostrophes
+    answer = ["".join(tups) for tups in perm_list]
+
+    return answer
