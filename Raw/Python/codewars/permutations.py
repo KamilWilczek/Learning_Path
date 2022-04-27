@@ -11,46 +11,23 @@ Examples:
 """
 
 
-input_string = "aabb"
+def permutations(string):
+    if len(string) == 0:
+        return []
 
+    elif len(string) == 1:
+        return [string]
 
-pool = tuple(input_string)
-n = len(pool)
-index_list = list(range(n))
-cycles = list(range(n, 0, -1))
-# yield str(pool[i] for i in index_list[:n])
-for i in index_list[:n]:
-    print(tuple(pool[i]))
-while n:
-    for i in reversed(range(n)):
-        cycles[i] -= 1
-        if cycles[i] == 0:
-            index_list[i:] = index_list[i + 1 :] + index_list[i : i + 1]
-            cycles[i] = n - 1
-        else:
-            j = cycles[i]
-            index_list[i], index_list[-j] = index_list[-j], index_list[i]
-            # yield tuple(pool[i] for i in index_list[:n])
-            for i in index_list[:n]:
-                print(tuple(pool[i]))
-            break
     else:
-        print("pusty string")
+        return set(
+            string[index] + p
+            for index in range(len(string))
+            for p in permutations(string[:index] + string[index + 1 :])
+        )
 
 
-# string_list = []
-# index_list = []
+# import itertools
 
-# for letter in input_string:
-#     string_list.append(letter)
-# print(string_list)
 
-# # for i, item in enumerate(string_list):
-# #     index_list.append(i)
-# # print(index_list)
-
-# for i, item in enumerate(string_list):
-#     try:
-#         print(string_list[i] + string_list[i + 1])
-#     except:
-#         print(string_list[i] + string_list[0])
+# def permutations(string):
+#     return set("".join(x) for x in itertools.permutations(string, r=len(string)))
