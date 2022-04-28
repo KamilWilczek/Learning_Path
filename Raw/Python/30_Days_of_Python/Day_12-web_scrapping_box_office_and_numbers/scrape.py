@@ -22,7 +22,17 @@ url = "https://www.boxofficemojo.com/year/world/"
 html_text = url_to_txt(url)
 
 r_html = HTML(html=html_text)
-table_class = "a-section imdb-scroll-table mojo-gutter imdb-scroll-table-styles"
+table_class = ".imdb-scroll-table"
 r_table = r_html.find(table_class)
 
-print(r_table)
+
+if len(r_table) == 1:
+    parsed_table = r_table[0]
+    rows = parsed_table.find("tr")
+    header_row = rows[0]
+    header_names = [x.text for x in header_row]
+    for row in rows[1:]:
+        print(row.text)
+        cols = row.find("td")
+        for i, col in enumerate(cols):
+            print(i, col.text, "\n\n")
