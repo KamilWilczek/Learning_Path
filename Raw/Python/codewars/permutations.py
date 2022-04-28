@@ -11,46 +11,39 @@ Examples:
 """
 
 
-input_string = "aabb"
+def permutations(string):
+    if len(string) == 0:
+        return []
 
+    elif len(string) == 1:
+        return [string]
 
-pool = tuple(input_string)
-n = len(pool)
-index_list = list(range(n))
-cycles = list(range(n, 0, -1))
-# yield str(pool[i] for i in index_list[:n])
-for i in index_list[:n]:
-    print(tuple(pool[i]))
-while n:
-    for i in reversed(range(n)):
-        cycles[i] -= 1
-        if cycles[i] == 0:
-            index_list[i:] = index_list[i + 1 :] + index_list[i : i + 1]
-            cycles[i] = n - 1
-        else:
-            j = cycles[i]
-            index_list[i], index_list[-j] = index_list[-j], index_list[i]
-            # yield tuple(pool[i] for i in index_list[:n])
-            for i in index_list[:n]:
-                print(tuple(pool[i]))
-            break
     else:
-        print("pusty string")
+        return set(
+            string[index] + p
+            for index in range(len(string))
+            for p in permutations(string[:index] + string[index + 1 :])
+        )
 
 
-# string_list = []
-# index_list = []
+# Best Practice
+import itertools
 
-# for letter in input_string:
-#     string_list.append(letter)
-# print(string_list)
 
-# # for i, item in enumerate(string_list):
-# #     index_list.append(i)
-# # print(index_list)
+def permutations(string):
+    return list("".join(p) for p in set(itertools.permutations(string)))
 
-# for i, item in enumerate(string_list):
-#     try:
-#         print(string_list[i] + string_list[i + 1])
-#     except:
-#         print(string_list[i] + string_list[0])
+
+def permutations(string):
+
+    # using tools to create permuatations of the input string
+    from itertools import permutations
+
+    perm = permutations(string)
+    # putting permutations into a dictionary to remove duplicates
+    # and then putting the permutations back into a list
+    perm_list = list(dict.fromkeys(perm))
+    # joining the tuples in the permuation list together with empty apostrophes
+    answer = ["".join(tups) for tups in perm_list]
+
+    return answer
