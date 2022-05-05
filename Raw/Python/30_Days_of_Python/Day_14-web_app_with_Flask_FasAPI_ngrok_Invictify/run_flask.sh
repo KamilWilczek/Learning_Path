@@ -1,0 +1,1 @@
+gunicorn flask_server:app
