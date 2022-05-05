@@ -1,1 +1,1 @@
-uvicorn fastapi_server:app
+uvicorn fastapi_server:app --port 8888
