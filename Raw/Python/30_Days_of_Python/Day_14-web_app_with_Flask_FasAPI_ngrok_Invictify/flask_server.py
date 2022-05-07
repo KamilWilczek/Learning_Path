@@ -1,4 +1,8 @@
 from flask import Flask
+from numpy import tri
+
+from logger import trigger_log_save
+from scrape import run as scrape_runner
 
 app = Flask(__name__)
 
@@ -14,3 +18,11 @@ def hello_world():
 def abc_view():
     # run other code here
     return "Hello, world. This is abc"
+
+
+# http://localhost:8000/box-office-mojo-scrapper
+@app.route("/box-office-mojo-scrapper", methods=["POST"])
+def box_office_scrapper_view():
+    trigger_log_save()
+    scrape_runner()
+    return {"data": [1, 2, 3]}
