@@ -5,7 +5,7 @@ import styles from "./List.module.scss";
 const List = props => (
   <ul className={styles.wrapper}>
     {props.items.map(item => (
-      <ListItem key={item.name} {...item} />
+      <ListItem key={item.title} {...item} />
     ))}
   </ul>
 );
