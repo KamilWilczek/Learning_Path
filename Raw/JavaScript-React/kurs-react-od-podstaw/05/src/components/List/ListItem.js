@@ -4,7 +4,7 @@ import styles from "./ListItem.module.scss";
 import Button from '../Button/Button';
 import Title from '../Title/Title';
 
-const ListItem = ({ image, title, description, link }) => {
+const ListItem = ({ image, title, description, link, type }) => {
   const ImageTag = image ? "img" : "div";
 
   return (
@@ -20,7 +20,7 @@ const ListItem = ({ image, title, description, link }) => {
         {link && <Button
           href={link}
         >
-          visit twitter page
+          visit {type} page
         </Button>}
       </div>
     </li>
@@ -32,6 +32,7 @@ ListItem.propTypes = {
   description: PropTypes.string.isRequired,
   link: PropTypes.string,
   image: PropTypes.string,
+  type: PropTypes.string,
 };
 
 ListItem.defaultProps = {

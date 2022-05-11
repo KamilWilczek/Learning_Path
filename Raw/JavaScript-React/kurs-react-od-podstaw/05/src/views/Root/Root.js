@@ -1,12 +1,12 @@
 import React from "react";
 import "./index.css";
+import AppContext from "../../context";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import TwittersView from '../TwittersView/TwittersView';
 import ArticlesView from '../ArticlesView/ArticlesView';
 import NotesView from '../NotesView/NotesView';
 import Header from '../../components/Header/Header';
 import Modal from '../../components/Modal/Modal';
-import AppContext from "../../context";
 
 
 class Root extends React.Component {
@@ -21,7 +21,7 @@ class Root extends React.Component {
     e.preventDefault();
 
     this.setState(prevState => ({
-      [newItem.type]: [prevState[newItem.type], newItem],
+      [newItem.type]: [...prevState[newItem.type], newItem],
     }));
 
     this.closeModal();
