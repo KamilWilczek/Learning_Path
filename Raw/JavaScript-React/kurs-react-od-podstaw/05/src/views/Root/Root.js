@@ -50,7 +50,6 @@ class Root extends React.Component {
       <BrowserRouter>
         <AppContext.Provider value={contextElemnts}>
           <Header openModalFn={this.openModal} />
-          <h1>hello world</h1>
           <Routes>
             <Route path="/" element={<TwittersView />} />
             <Route path="/articles" element={<ArticlesView />} />
