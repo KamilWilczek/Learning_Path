@@ -81,3 +81,7 @@ Raw/Python/30_Days_of_Python/30DoP
 venv
 node_modules
 .env
+build
+
+# Local Netlify folder
+.netlify
