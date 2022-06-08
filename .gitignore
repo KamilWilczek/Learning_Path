@@ -77,8 +77,13 @@ Blockchain/SolidityBlockchainSmartContract/L5/brownie_simple_storage/brownie
 
 Raw/Python/30_Days_of_Python/30DoP
 30dopvenv
+Raw/Python/30_Days_of_Python/Day_15-automated_video_processing_with_Moviepy/data/samples/outputs
 
 #global
 venv
 node_modules
 .env
+build
+
+# Local Netlify folder
+.netlify

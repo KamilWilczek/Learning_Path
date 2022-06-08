@@ -1,10 +1,10 @@
 import React from "react";
+import AppContext from "../../context";
 import styles from "./Form.module.scss";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
 import Title from "../Title/Title";
 import Radio from "./FormRadio";
-import AppContext from "../../context";
 
 const types = {
   twitter: "twitter",
@@ -37,7 +37,7 @@ class Form extends React.Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-  }
+  };
 
   render() {
     const { type } = this.state;
@@ -80,7 +80,6 @@ class Form extends React.Component {
                 value={this.state.title}
                 name="title"
                 label={type === types.twitter ? "Twitter Name" : "Title"}
-                maxLength={30}
               />
               {type !== types.note ? (
                 <Input
