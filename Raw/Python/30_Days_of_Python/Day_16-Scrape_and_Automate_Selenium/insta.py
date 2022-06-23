@@ -3,6 +3,7 @@
 # my_password = getpass.getpass('What is your password?\n"')
 
 # print(my_password)
+from requests import post
 from conf import INSTA_USERNAME, INSTA_PASSWORD
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -34,7 +35,7 @@ submit_btn_el.click()
 # <button class="sqdOP yWX7d    y3zKF     " type="button">Nie teraz</button>
 # //*[@id="react-root"]/section/main/div/div/div/div/button
 # active the iframe and click the agree button
-time.sleep(3)
+time.sleep(5)
 logging_data_save_el = browser.find_element(By.CLASS_NAME, "sqdOP.yWX7d.y3zKF")
 logging_data_save_el.click()
 
@@ -48,4 +49,48 @@ notifications_el.click()
 
 body_el = browser.find_element(By.CSS_SELECTOR, "body")
 html_text = body_el.get_attribute("innerHTML")
-print(html_text)
+# print(html_text)
+
+"""
+<button class="_abn9 _abng _abni _abnn"><div class="_aacl _aaco _aacw _aad6 _aade">Obserwuj</div></button>
+"""
+# browser.find_elements(By.CSS_SELECTOR, 'button')
+
+# xpath
+# my_button_xpath = "//button"
+# browser.find_element(By.XPATH, my_button_xpath)
+
+# to follow all use recursive function
+def click_to_follow(browser):
+    # my_follow_xpath = (
+    #     "//button[contains(text(), 'Obserwuj')][not(contains(text(), 'Obserwujesz'))]"
+    # )
+
+    my_follow_xpath = "//*[contains(text(), 'Obserwuj')][not(contains(text(), 'Obserwujesz'))][not(contains(text(), 'obserwujących'))][not(contains(text(), 'Obserwujący'))]"
+    follow_btn_elements = browser.find_elements(By.XPATH, my_follow_xpath)
+    for btn in follow_btn_elements:
+        time.sleep(2)  # self-throttle
+        try:
+            btn.click()
+        except:
+            pass
+
+
+# new_user_url = "https://www.instagram.com/ted/"
+# browser.get(new_user_url)
+
+time.sleep(2)
+the_rock_url = "https://www.instagram.com/therock/"
+browser.get(the_rock_url)
+
+# post_url_pattern = "https://www.instagram.com/p/<post-slug-id>"
+post_xpath_str = "//a[contains(@href, '/p/')]"
+post_links = browser.find_elements(By.XPATH, post_xpath_str)
+post_link_el = None
+
+if len(post_links) > 0:
+    post_link_el = post_links[0]
+
+if post_link_el != None:
+    post_href = post_link_el.get_attribute("href")
+    browser.get(post_href)
