@@ -83,6 +83,7 @@ venv
 node_modules
 .env
 build
+sbscenv
 
 # Local Netlify folder
 .netlify
