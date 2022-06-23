@@ -7,9 +7,10 @@ from requests import post
 from conf import INSTA_USERNAME, INSTA_PASSWORD
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 
-browser = webdriver.Chrome()
+browser = webdriver.Chrome(ChromeDriverManager().install())
 
 url = "https://www.instagram.com"
 browser.get(url)
