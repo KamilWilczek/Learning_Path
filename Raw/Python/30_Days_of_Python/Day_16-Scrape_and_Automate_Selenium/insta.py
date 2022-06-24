@@ -106,21 +106,31 @@ video_els = browser.find_elements(By.XPATH, "//video")
 time.sleep(2)
 image_els = browser.find_elements(By.XPATH, "//img")
 base_dir = os.path.dirname(os.path.abspath(__file__))
-img_dir = os.path.join(base_dir, "images")
-os.makedirs(img_dir, exist_ok=True)
+data_dir = os.path.join(base_dir, "data")
+os.makedirs(data_dir, exist_ok=True)
 
-for img in image_els:
-    # print(img.get_attribute("src"))
-    url = img.get_attribute("src")
-    base_url = urlparse(url).path
-    print("base_url", base_url)
-    filename = os.path.basename(base_url)
-    filepath = os.path.join(img_dir, filename)
-    with requests.get(url, stream=True) as r:
-        try:
-            r.raise_for_status()
-        except:
+# TODO: PIL to verify the size of any given image.
+def scrape_and_save(elements):
+    for el in elements:
+        url = el.get_attribute("src")
+        base_url = urlparse(url).path
+        filename = os.path.basename(base_url)
+        # TODO: adding to whom belongs posts
+        filepath = os.path.join(data_dir, filename)
+        if os.path.exists(filepath):
             continue
-        with open(filepath, "wb") as f:
-            for chunk in r.iter_content():
-                f.write(chunk)
+        with requests.get(url, stream=True) as r:
+            try:
+                r.raise_for_status()
+            except:
+                continue
+            with open(filepath, "wb") as f:
+                for chunk in r.iter_content(chunk_size=8192):
+                    if chunk:
+                        f.write(chunk)
+
+
+scrape_and_save(video_els)
+scrape_and_save(image_els)
+
+print("KONIEC")
