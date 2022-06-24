@@ -3,14 +3,18 @@
 # my_password = getpass.getpass('What is your password?\n"')
 
 # print(my_password)
-from requests import post
+# from requests import post
+import os
+import requests
+from urllib.parse import urlparse
 from conf import INSTA_USERNAME, INSTA_PASSWORD
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 
-browser = webdriver.Chrome(ChromeDriverManager().install())
+browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 url = "https://www.instagram.com"
 browser.get(url)
@@ -85,6 +89,7 @@ the_rock_url = "https://www.instagram.com/therock/"
 browser.get(the_rock_url)
 
 # post_url_pattern = "https://www.instagram.com/p/<post-slug-id>"
+time.sleep(2)
 post_xpath_str = "//a[contains(@href, '/p/')]"
 post_links = browser.find_elements(By.XPATH, post_xpath_str)
 post_link_el = None
@@ -95,3 +100,27 @@ if len(post_links) > 0:
 if post_link_el != None:
     post_href = post_link_el.get_attribute("href")
     browser.get(post_href)
+
+time.sleep(2)
+video_els = browser.find_elements(By.XPATH, "//video")
+time.sleep(2)
+image_els = browser.find_elements(By.XPATH, "//img")
+base_dir = os.path.dirname(os.path.abspath(__file__))
+img_dir = os.path.join(base_dir, "images")
+os.makedirs(img_dir, exist_ok=True)
+
+for img in image_els:
+    # print(img.get_attribute("src"))
+    url = img.get_attribute("src")
+    base_url = urlparse(url).path
+    print("base_url", base_url)
+    filename = os.path.basename(base_url)
+    filepath = os.path.join(img_dir, filename)
+    with requests.get(url, stream=True) as r:
+        try:
+            r.raise_for_status()
+        except:
+            continue
+        with open(filepath, "wb") as f:
+            for chunk in r.iter_content():
+                f.write(chunk)
