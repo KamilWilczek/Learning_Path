@@ -7,12 +7,15 @@
 import os
 import requests
 from urllib.parse import urlparse
+
+import selenium
 from conf import INSTA_USERNAME, INSTA_PASSWORD
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 import time
+from selenium.webdriver.support import expected_conditions as EC
 
 browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
@@ -89,7 +92,7 @@ the_rock_url = "https://www.instagram.com/therock/"
 browser.get(the_rock_url)
 
 # post_url_pattern = "https://www.instagram.com/p/<post-slug-id>"
-time.sleep(2)
+time.sleep(5)
 post_xpath_str = "//a[contains(@href, '/p/')]"
 post_links = browser.find_elements(By.XPATH, post_xpath_str)
 post_link_el = None
@@ -130,7 +133,41 @@ def scrape_and_save(elements):
                         f.write(chunk)
 
 
-scrape_and_save(video_els)
-scrape_and_save(image_els)
+# scrape_and_save(video_els)
+# scrape_and_save(image_els)
+
+"""
+LONG TERM Goal:
+Use machine learning to classify the post's
+image or video
+and then comment in a relevant fashion
+"""
+
+"""
+<textarea aria-label="Dodaj komentarz..." placeholder="Dodaj komentarz..." class="_ablz _aaoc" autocomplete="off" autocorrect="off" style="height: 18px !important;"></textarea>
+"""
+
+
+def automate_comment(content="That is cool!"):
+    time.sleep(5)
+    comment_xpath_str = "//textarea[contains(@placeholder, 'Dodaj komentarz')]"
+    comment_el = browser.find_element(By.XPATH, comment_xpath_str)
+    # try except fixes "StaleElementReferenceException: Message: stale element reference: element is not attached to the page document"
+    try:
+        comment_el.send_keys(content)
+    except:
+        comment_el = browser.find_element(By.XPATH, comment_xpath_str)
+        comment_el.send_keys(content)
+    submit_btns_xpath = "button[type='submit']"
+    submit_btns_els = browser.find_elements(By.CSS_SELECTOR, submit_btns_xpath)
+    time.sleep(2)
+    for btn in submit_btns_els:
+        try:
+            btn.click()
+        except:
+            pass
+
+
+automate_comment(content="That is cool!")
 
 print("KONIEC")
